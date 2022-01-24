@@ -1,4 +1,4 @@
-import marked from '../parser/marked'
+import { marked } from 'marked'
 import Prism from 'prismjs'
 import katex from 'katex'
 import 'katex/dist/contrib/mhchem.min.js'
@@ -200,15 +200,9 @@ class ExportHtml {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${sanitize(title, EXPORT_DOMPURIFY_CONFIG, true)}</title>
-  <style>
-  ${githubMarkdownCss}
-  </style>
-  <style>
-  ${highlightCssStyle}
-  </style>
-  <style>
-  ${katexCssStyle}
-  </style>
+  <style>${githubMarkdownCss}</style>
+  <style>${highlightCssStyle}</style>
+  <style>${katexCssStyle}</style>
   <style>
     .markdown-body {
       font-family: -apple-system,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;

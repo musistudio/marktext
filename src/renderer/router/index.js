@@ -7,6 +7,7 @@ import SpellChecker from '@/prefComponents/spellchecker'
 import Theme from '@/prefComponents/theme'
 import Image from '@/prefComponents/image'
 import ImageUploader from '@/prefComponents/imageUploader'
+import GithubPage from '@/prefComponents/githubPage'
 
 const routes = type => ([{
   path: '/', redirect: type === 'editor' ? '/editor' : '/preference'
@@ -31,6 +32,8 @@ const routes = type => ([{
     path: 'image', component: Image, name: 'image'
   }, {
     path: 'imageUploader', component: ImageUploader, name: 'imageUploader'
+  }, {
+    path: 'githubPage', component: GithubPage, name: 'githubPage'
   }]
 }])
 

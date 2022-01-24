@@ -3,7 +3,7 @@ import { CLASS_OR_ID } from '../config'
 import { escapeHtml } from '../utils'
 import { getSanitizeHtml } from '../utils/exportHtml'
 import ExportMarkdown from '../utils/exportMarkdown'
-import marked from '../parser/marked'
+import { marked } from 'marked'
 
 const copyCutCtrl = ContentState => {
   ContentState.prototype.docCutHandler = function (event) {

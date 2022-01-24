@@ -1075,6 +1075,12 @@ export default {
               extraCss,
               toc: htmlToc
             })
+            console.log({
+              title: htmlTitle || '',
+              printOptimization: false,
+              extraCss,
+              toc: htmlToc
+            })
             this.$store.dispatch('EXPORT', { type, content })
           } catch (err) {
             log.error('Failed to export document:', err)

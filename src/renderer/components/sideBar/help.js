@@ -2,6 +2,7 @@ import FilesIcon from '@/assets/icons/files.svg'
 import SearchIcon from '@/assets/icons/search.svg'
 import TocIcon from '@/assets/icons/toc.svg'
 import SettingIcon from '@/assets/icons/setting.svg'
+import PublishIcon from '@/assets/icons/publish.svg'
 
 export const sideBarIcons = [
   {
@@ -17,6 +18,10 @@ export const sideBarIcons = [
 ]
 
 export const sideBarBottomIcons = [
+  {
+    name: 'publish',
+    icon: PublishIcon
+  },
   {
     name: 'settings',
     icon: SettingIcon
