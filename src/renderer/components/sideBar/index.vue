@@ -78,6 +78,7 @@ export default {
       sideBarWidth: state => state.layout.sideBarWidth,
       tabs: state => state.editor.tabs
     }),
+    ...mapState({}),
     finalSideBarWidth () {
       const { showSideBar, rightColumn, sideBarViewWidth } = this
       let width = sideBarViewWidth
@@ -131,8 +132,8 @@ export default {
       if (name === 'settings') {
         this.$store.dispatch('OPEN_SETTING_WINDOW')
       } else if (name === 'publish') {
-        console.log('发布')
-        console.log(this.$store)
+        console.log(this)
+        bus.$emit('publish', { title: '标题' })
       }
     }
   }

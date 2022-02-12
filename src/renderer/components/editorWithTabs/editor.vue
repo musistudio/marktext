@@ -630,6 +630,7 @@ export default {
       bus.$on('redo', this.handleRedo)
       bus.$on('selectAll', this.handleSelectAll)
       bus.$on('export', this.handleExport)
+      bus.$on('publish', this.handlePublish)
       bus.$on('print-service-clearup', this.handlePrintServiceClearup)
       bus.$on('paragraph', this.handleEditParagraph)
       bus.$on('format', this.handleInlineFormat)
@@ -1050,6 +1051,11 @@ export default {
       this.scrollToHighlight()
     },
 
+    handlePublish (options) {
+      console.log('发布')
+      this.editor.transformWebsite(options).then(res => console.log(res))
+    },
+
     async handleExport (options) {
       const {
         type,
@@ -1070,12 +1076,6 @@ export default {
         case 'styledHtml': {
           try {
             const content = await this.editor.exportStyledHTML({
-              title: htmlTitle || '',
-              printOptimization: false,
-              extraCss,
-              toc: htmlToc
-            })
-            console.log({
               title: htmlTitle || '',
               printOptimization: false,
               extraCss,
@@ -1253,6 +1253,7 @@ export default {
     bus.$off('redo', this.handleRedo)
     bus.$off('selectAll', this.handleSelectAll)
     bus.$off('export', this.handleExport)
+    bus.$off('publish', this.handlePublish)
     bus.$off('print-service-clearup', this.handlePrintServiceClearup)
     bus.$off('paragraph', this.handleEditParagraph)
     bus.$off('format', this.handleInlineFormat)

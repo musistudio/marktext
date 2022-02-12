@@ -10,6 +10,7 @@ import { CLASS_OR_ID, MUYA_DEFAULT_OPTION } from './config'
 import { wordCount } from './utils'
 import ExportMarkdown from './utils/exportMarkdown'
 import ExportHtml from './utils/exportHtml'
+import ExportWebsite from './utils/exportWebsite'
 import ToolTip from './ui/tooltip'
 import './assets/styles/index.css'
 
@@ -150,6 +151,11 @@ class Muya {
   exportStyledHTML (options) {
     const { markdown } = this
     return new ExportHtml(markdown, this).generate(options)
+  }
+
+  transformWebsite (options) {
+    const { markdown } = this
+    return new ExportWebsite(markdown, this).generate(options)
   }
 
   exportHtml () {

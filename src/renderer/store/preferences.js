@@ -142,6 +142,11 @@ const actions = {
     ipcRenderer.send('mt::select-default-directory-to-open')
   },
 
+  DOWNLOAD_THEME ({ commit }, themeUrl) {
+    alert(themeUrl)
+    ipcRenderer.send('mt::download-theme', themeUrl)
+  },
+
   // Toggle a view option and notify main process to toggle menu item.
   LISTEN_TOGGLE_VIEW ({ commit, state }) {
     bus.$on('view:toggle-view-entry', entryName => {

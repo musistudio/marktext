@@ -46,7 +46,7 @@ export const category = [{
   path: '/preference/imageUploader'
 }, {
   name: 'GitHub Page',
-  label: 'GithubPage',
+  label: 'githubPage',
   icon: GithubIcon,
   path: '/preference/githubPage'
 }]
