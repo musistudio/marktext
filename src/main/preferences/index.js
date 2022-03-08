@@ -8,7 +8,8 @@ import log from 'electron-log'
 import { isWindows } from '../config'
 import { hasSameKeys } from '../utils'
 import schema from './schema'
-import { downloader } from '../filesystem/downloader'
+import { cloneTheme } from '../filesystem/git'
+// import { downloader } from '../filesystem/downloader'
 
 const PREFERENCES_FILE_NAME = 'preferences'
 
@@ -147,7 +148,8 @@ class Preference extends EventEmitter {
 
     ipcMain.on('mt::download-theme', (e, themeUrl) => {
       console.log({ themeUrl })
-      downloader(themeUrl, path.join(this.preferencesPath, 'themes/'))
+      cloneTheme(themeUrl, path.join(this.preferencesPath, 'themes/'))
+      // downloader(themeUrl, path.join(this.preferencesPath, 'themes/'))
       // console.log(themeUrl, this.preferencesPath)
     })
   }
