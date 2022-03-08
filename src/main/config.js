@@ -12,13 +12,15 @@ export const editorWinOptions = Object.freeze({
     webSecurity: false
   },
   useContentSize: true,
-  show: true, // Show the window after the app is ready.
+  show: true,
   frame: false,
   titleBarStyle: 'hiddenInset',
   zoomFactor: 1.0
 })
 
 export const preferencesWinOptions = Object.freeze({
+  minWidth: 450,
+  minHeight: 350,
   width: 950,
   height: 650,
   webPreferences: {
@@ -29,9 +31,7 @@ export const preferencesWinOptions = Object.freeze({
   },
   fullscreenable: false,
   fullscreen: false,
-  resizable: false,
   minimizable: false,
-  maximizable: false,
   useContentSize: true,
   show: true,
   frame: false,

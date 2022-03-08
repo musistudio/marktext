@@ -1,9 +1,9 @@
 import katex from 'katex'
-import prism, { loadedLanguages, transfromAliasToOrigin } from '../../../prism/'
+import prism, { loadedLanguages, transformAliasToOrigin } from '../../../prism/'
 import 'katex/dist/contrib/mhchem.min.js'
 import { CLASS_OR_ID, DEVICE_MEMORY, PREVIEW_DOMPURIFY_CONFIG, HAS_TEXT_BLOCK_REG } from '../../../config'
 import { tokenizer } from '../../'
-import { snakeToCamel, sanitize, escapeHtml, getLongUniqueId, getImageInfo } from '../../../utils'
+import { snakeToCamel, sanitize, escapeHTML, getLongUniqueId, getImageInfo } from '../../../utils'
 import { h, htmlToVNode } from '../snabbdom'
 
 // todo@jocs any better solutions?
@@ -47,7 +47,7 @@ const getHighlightHtml = (text, highlights, escape = false, handleLineEnding = f
       code += text.substring(pos)
     }
   }
-  return escapeHtml(code)
+  return escapeHTML(code)
 }
 
 const hasReferenceToken = tokens => {
@@ -114,7 +114,6 @@ export default function renderLeafBlock (parent, block, activeBlocks, matches, u
         this.tokenCache.set(text, tokens)
       }
     }
-
     children = tokens.reduce((acc, token) => [...acc, ...this[snakeToCamel(token.type)](h, cursor, block, token)], [])
   }
 
@@ -193,6 +192,7 @@ export default function renderLeafBlock (parent, block, activeBlocks, matches, u
       }
       case 'flowchart':
       case 'sequence':
+      case 'plantuml':
       case 'vega-lite': {
         selector += `.${CLASS_OR_ID.AG_CONTAINER_PREVIEW}`
         Object.assign(data.attrs, { spellcheck: 'false' })
@@ -232,8 +232,8 @@ export default function renderLeafBlock (parent, block, activeBlocks, matches, u
       .replace(new RegExp(MARKER_HASK['"'], 'g'), '"')
       .replace(new RegExp(MARKER_HASK["'"], 'g'), "'")
 
-    // transfrom alias to original language
-    const transformedLang = transfromAliasToOrigin([lang])[0]
+    // transform alias to original language
+    const transformedLang = transformAliasToOrigin([lang])[0]
     if (transformedLang && /\S/.test(code) && loadedLanguages.has(transformedLang)) {
       const wrapper = document.createElement('div')
       wrapper.classList.add(`language-${transformedLang}`)

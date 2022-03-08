@@ -654,7 +654,7 @@ YAML front matter blocks are identified by an opening and closing `---` line.
 ```markdown
 ---
 title: YAML front matter example
-key: valule
+key: value
 ---
 
 Lorem ipsum dolor sit amet, graecis denique ei vel, at duo primis mandamus.
@@ -844,6 +844,20 @@ Class01 : int gorilla
 Class08 <--> C2: Cool label
 ```
 </pre>
+
+## PlantUML
+
+Please visit [PlantUML website](https://plantuml.com/) for more details.
+
+```plantuml
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+```
 
 <br>
 

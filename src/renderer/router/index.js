@@ -6,7 +6,7 @@ import Markdown from '@/prefComponents/markdown'
 import SpellChecker from '@/prefComponents/spellchecker'
 import Theme from '@/prefComponents/theme'
 import Image from '@/prefComponents/image'
-import ImageUploader from '@/prefComponents/imageUploader'
+import Keybindings from '@/prefComponents/keybindings'
 import GithubPage from '@/prefComponents/githubPage'
 
 const routes = type => ([{
@@ -31,7 +31,7 @@ const routes = type => ([{
   }, {
     path: 'image', component: Image, name: 'image'
   }, {
-    path: 'imageUploader', component: ImageUploader, name: 'imageUploader'
+    path: 'keybindings', component: Keybindings, name: 'keybindings'
   }, {
     path: 'githubPage', component: GithubPage, name: 'githubPage'
   }]

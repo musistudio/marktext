@@ -7,6 +7,7 @@ fileIcons.getClassByName = function (name) {
 
   return icon ? icon.getClass(0, false) : null
 }
+
 fileIcons.getClassByLanguage = function (lang) {
   const icon = fileIcons.matchLanguage(lang)
 

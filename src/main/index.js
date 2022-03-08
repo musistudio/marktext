@@ -11,7 +11,7 @@ import setupEnvironment from './app/env'
 import { getLogLevel } from './utils'
 
 const initializeLogger = appEnvironment => {
-  log.transports.console.level = process.env.NODE_ENV === 'development' ? true : 'error'
+  log.transports.console.level = process.env.NODE_ENV === 'development' ? 'info' : 'error'
   log.transports.rendererConsole = null
   log.transports.file.resolvePath = () => path.join(appEnvironment.paths.logPath, 'main.log')
   log.transports.file.level = getLogLevel()
@@ -59,7 +59,8 @@ try {
 } catch (err) {
   // Catch errors that may come from invalid configuration files like settings.
   const msgHint = err.message.includes('Config schema violation')
-    ? 'This seems to be an issue with your configuration file(s). ' : ''
+    ? 'This seems to be an issue with your configuration file(s). '
+    : ''
   log.error(`Loading MarkText failed during initialization! ${msgHint}`, err)
 
   const EXIT_ON_ERROR = !!process.env.MARKTEXT_EXIT_ON_ERROR

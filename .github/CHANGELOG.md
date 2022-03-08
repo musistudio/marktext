@@ -1,3 +1,77 @@
+## 0.17.1
+
+- Added experimental native support for Apple M1 (see #2983 if you have issues).
+
+**:butterfly:Optimization**
+
+- Improved behavior of inline markdown character auto pairing.
+
+**:beetle:Bug fix**
+
+- Fixed crash at startup when a key binding was unset.
+- Fixed paste handler for images.
+- Fixed deletion behavior of a selected image.
+
+## 0.17.0
+
+Mark Text is now MarkText! We'd like to thank all contributors and users that have been using MarkText and worked on this release.
+
+**:warning:Breaking Changes:**
+
+- Changed multiple default key bindings.
+- Changed key binding handling: all key bindings are now mapped to the corresponding US key bindings. E.g. `Ctrl+Shift+7` on a German keyboard will now produce `Ctrl+/` because `Shift+7` is equivalent to `/`.
+- Image uploader: SM.MS was removed, GitHub uploader is deprecated and will be replaced by PicGo in our next release.
+
+**:cactus:Feature**
+
+- Added support for image path variables.
+- Added command-line image uploader and reworked settings.
+- Added regular expression group replacement to searcher.
+- Added PlantUML diagram support.
+- Added support for chemical equations in math mode.
+- Added automatic call to search for find-in-file when the pane is opened.
+- Open local non-markdown files in default application.
+- Added support to use all menu entries for key binding.
+- Added window zoom via default mouse event.
+- Zoom level is now restored on startup.
+- Added PicGo to upload images.
+- Ability to invalidate image cache on demand.
+- Added settings page to configure key bindings.
+
+**:butterfly:Optimization**
+
+- Improved inline markdown autocomplete support.
+- Improved preference design.
+- Relative image paths are now converted to forward slashes on Windows for better compatibility.
+- Center sidebar image when no search results are available.
+- Updated emoji database.
+- Improved sidebar file handling UX by providing more error messages.
+
+**:beetle:Bug fix**
+
+- Fixed an issue with code block cursor positioning.
+- Fixed invalid mermaid diagram representation when exporting as PDF.
+- Fixed rendering issue with LaTeX formulas
+- Fixed an issue that may caused editor flickering while pressing `Enter`.
+- Fixed Table of Contents sidebar display issue.
+- Fixed editor overflow when the sidbar is open.
+- Fixed a crash that occurred due to a bug in the markdown footnote parser.
+- Fixed issue with shortcuts that included `Alt`.
+- Fixed multiple issues on non-US keyboards.
+- Normalized source-code editor cursor.
+- Fixed preference scaling issue and added missing scrollbar.
+- Fixed a rendering issue when multiple elements were selected via keyboard.
+- Fixed preference migrations were always executed on start-up.
+- Fixed scrolling and search match positing with high DPI scaling.
+- Fixed slow startup on Windows due to a blocking call.
+- Fixed an issue that caused the paste handler to insert only HTML content because if HTML rendering was disabled.
+- Fixed file rename with editor dialog.
+- Fixed URL open handler when clicking a link in the editor.
+- Fixed an issue that prevented to unindent a list item.
+- Fixed multiple XSS issues on language selector and data input.
+- Fixed a bug that HTML was rendered in preview mode even it was disabled in settings.
+- HTML character encoding is now supported in code blocks.
+
 ## 0.16.3
 
 **:warning:Breaking Changes:**
@@ -387,7 +461,7 @@ foo<section>bar</section>zar
 - Don't show save dialog for an empty document (#422)
 - Sidebar and tab redesign
 - Calculate artifact checksum after uploading (#566)
-- Use `CmdOrCltr+Enter` to add table row bellow.
+- Use `CmdOrCltr+Enter` to add table row below.
 
 **:beetle:Bug fix**
 

@@ -1,4 +1,4 @@
-import fs from 'fs-extra'
+import fs from 'fs'
 import path from 'path'
 import os from 'os'
 import { SpellCheckHandler, fallbackLocales, normalizeLanguageCode } from '@hfelix/electron-spellchecker'
@@ -123,7 +123,7 @@ export class SpellChecker {
    * @param {boolean} enabled Whether spell checking is enabled.
    */
   constructor (enabled = true) {
-    // Hunspell is used on Linux and Windows but macOS can use Hunspell if prefered.
+    // Hunspell is used on Linux and Windows but macOS can use Hunspell if preferred.
     this.isHunspell = !isOsSpellcheckerSupported() || !!process.env['SPELLCHECKER_PREFER_HUNSPELL'] // eslint-disable-line dot-notation
 
     // Initialize spell check provider. If spell check is not enabled don't
